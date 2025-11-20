@@ -3,6 +3,6 @@
 import typing
 
 
-def element_length(lst: typing.Iterable[typing.Sequence]) -> typing.Tuple[typing.Sequence, int]:
+def element_length(lst: typing.Iterable[typing.Sequence]) -> typing.List[typing.Tuple[typing.Sequence, int]]:
     """ Return element length """
     return [(i, len(i)) for i in lst]
