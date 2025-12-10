@@ -11,7 +11,6 @@ def log_stats():
     print(f"{collection.count_documents({})} logs")
     print("Methods:")
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-    print("Methods:")
     for method in methods:
         method_count = collection.count_documents({"method": method})
         print(f"\tmethod {method}: {method_count}")
