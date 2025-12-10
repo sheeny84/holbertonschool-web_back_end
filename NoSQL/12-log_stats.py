@@ -13,5 +13,5 @@ print(f"    method POST: {collection.count_documents({'method':'POST'})}")
 print(f"    method PUT: {collection.count_documents({'method':'PUT'})}")
 print(f"    method PATCH: {collection.count_documents({'method':'PATCH'})}")
 print(f"    method DELETE: {collection.count_documents({'method':'DELETE'})}")
-print(f"{collection.count_documents({'method': 'GET',
-                                     'path': '/status'})} status check")
+print(f"""{collection.count_documents({'method': 'GET',
+                                     'path': '/status'})} status check""")
