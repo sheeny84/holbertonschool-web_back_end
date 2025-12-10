@@ -1,5 +1,7 @@
 // update Holberton school to add an address
-db.school.updateMany(
-    {name: "Holberton school"},
-    { $set: { address: "972 Mission street"}}
+// update is deprecated, so use updateMany
+db.school.update(
+    { name: "Holberton school" },
+    { $set: { address: "972 Mission street"}},
+    { mutli: true }
 )
