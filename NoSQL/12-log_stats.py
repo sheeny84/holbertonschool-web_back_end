@@ -4,6 +4,7 @@ import pymongo
 
 
 def log_stats():
+    """Print stats for logs nginx"""
     client = pymongo.MongoClient("mongodb://localhost:27017/")
     db = client.logs
     collection = db.nginx
