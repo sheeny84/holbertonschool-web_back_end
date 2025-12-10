@@ -2,6 +2,7 @@
 """ This is the 'log_stats' module """
 import pymongo
 
+
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client.logs
 collection = db.nginx
