@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   let result = '';
-  if (startString.length === 0) {
+  if (startString === undefined || startString.length === 0) {
     return result;
   }
   for (const item of set) {
