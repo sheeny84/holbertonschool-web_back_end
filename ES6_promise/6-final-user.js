@@ -6,11 +6,15 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   const promise2 = uploadPhoto(fileName);
   return Promise.all([promise1, promise2])
     .then((user, photo) => ([
-      photo,
-      user,
+      {
+        status: 'fulfilled',
+        value: user,
+      }
     ]))
-    .catch(() => ([
-      { status: 500, body: null },
-      { firstName, lastName },
+    .catch((error) => ([
+      { 
+        status: 'rejected',
+        value: error.toString(),
+      }
     ]));
 }
