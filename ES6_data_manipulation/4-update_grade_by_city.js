@@ -1,4 +1,5 @@
 export default function updateStudentGradeByCity(students, city, newGrades) {
+  // students obj has id, firstName, and location
   // Filter by city
   const studentsByCity = students.filter(({ location }) => location === city);
   // Update grades
