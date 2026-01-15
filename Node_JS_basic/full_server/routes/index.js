@@ -1,7 +1,8 @@
-import AppController from '../controllers/AppController'
-import StudentController from '../controllers/StudentsController'
+import AppController from '../controllers/AppController';
+import StudentController from '../controllers/StudentsController';
 
 const express = require('express');
+
 const router = express.Router();
 
 router.get('/', (req, res) => {

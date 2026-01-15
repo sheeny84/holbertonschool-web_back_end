@@ -1,4 +1,4 @@
-import readDatabase from '../utils'
+import readDatabase from '../utils';
 
 export default class StudentsController {
   static getAllStudents(request, response) {
@@ -15,15 +15,15 @@ export default class StudentsController {
 
         response.status(200).send(output);
       })
-      .catch((error) => {
+      .catch(() => {
         response.status(500).send('Cannot load the database');
-      })
+      });
   }
 
   static getAllStudentsByMajor(request, response) {
     const database = request.app.get('database');
     response.setHeader('Content-Type', 'text/plain');
-    let path = request.url.split('/');
+    const path = request.url.split('/');
     const major = path[2];
     if (major !== 'CS' && major !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
@@ -34,9 +34,9 @@ export default class StudentsController {
           const output = `List: ${names.join(', ')}\n`;
           response.status(200).send(output);
         })
-        .catch((error) => {
+        .catch(() => {
           response.status(500).send('Cannot load the database');
-        })
+        });
     }
   }
 }

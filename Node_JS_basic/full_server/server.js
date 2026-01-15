@@ -1,7 +1,7 @@
 const express = require('express');
-const routes = require('./routes/index.js');
-const database = process.argv[2];
+const routes = require('./routes/index');
 
+const database = process.argv[2];
 const app = express();
 const PORT = 1245;
 
@@ -13,4 +13,4 @@ app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 
-export default app;
+module.exports =  app;
