@@ -14,7 +14,8 @@ const app = createServer((req, res) => {
 
     fs.readFile(args[0], 'utf8', (error, data) => {
       if (error) {
-        throw new Error('Cannot load the database');
+        res.end('Cannot load the database');
+        return;
       }
       let rows = data.trim().split('\n');
       rows = rows.slice(1);
