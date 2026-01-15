@@ -1,4 +1,4 @@
-import readDatabase from '../utils.js';
+import readDatabase from '../utils';
 
 export default class StudentsController {
   static async getAllStudents(req, res) {
@@ -6,9 +6,8 @@ export default class StudentsController {
     try {
       const data = await readDatabase(databaseFile);
       let responseText = 'This is the list of our students\n';
-      const fields = Object.keys(data).sort((a, b) =>
-        a.toLowerCase().localeCompare(b.toLowerCase())
-      );
+      const fields = Object.keys(data).sort((a, b) => a.toLowerCase()
+        .localeCompare(b.toLowerCase()));
       fields.forEach((field) => {
         responseText += `Number of students in ${field}: ${data[field].length}. List: ${data[field].join(', ')}\n`;
       });
@@ -20,7 +19,7 @@ export default class StudentsController {
 
   static async getAllStudentsByMajor(req, res) {
     const databaseFile = process.argv[2];
-    const major = req.params.major;
+    const { major } = req.params.major;
 
     if (!['CS', 'SWE'].includes(major)) {
       res.status(500).send('Major parameter must be CS or SWE');
