@@ -1,4 +1,4 @@
-export default class AppController {
+class AppController {
   static getHomepage(request, response) {
     response.statusCode = 200;
     response.setHeader('Content-Type', 'text/plain');
@@ -6,3 +6,5 @@ export default class AppController {
     return response;
   }
 }
+
+module.exports = AppController;

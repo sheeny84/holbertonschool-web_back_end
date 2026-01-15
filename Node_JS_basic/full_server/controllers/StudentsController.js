@@ -1,6 +1,6 @@
 import readDatabase from '../utils';
 
-export default class StudentsController {
+class StudentsController {
   static getAllStudents(request, response) {
     const database = request.app.get('database');
     readDatabase(database)
@@ -40,3 +40,5 @@ export default class StudentsController {
     }
   }
 }
+
+module.exports = StudentsController;

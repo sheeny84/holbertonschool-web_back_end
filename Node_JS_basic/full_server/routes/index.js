@@ -1,7 +1,6 @@
-import AppController from '../controllers/AppController';
-import StudentController from '../controllers/StudentsController';
-
 const express = require('express');
+const AppController = require('../controllers/AppController');
+const StudentController = require('../controllers/StudentsController');
 
 const router = express.Router();
 
