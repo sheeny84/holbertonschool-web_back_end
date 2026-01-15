@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const PORT = 1245;
 
-// Without middleware
 app.get('/', (req, res) => {
   res.end('Hello Holberton School!');
 });
