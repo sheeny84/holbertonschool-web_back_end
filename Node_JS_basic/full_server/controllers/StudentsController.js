@@ -4,9 +4,9 @@ const args = process.argv.slice(2);
 export default class StudentsController {
   static getAllStudents(request, response) {
     response.setHeader('Content-Type', 'text/plain');
+    response.statusCode = 200;
     readDatabase(args[0])
       .then((data) => {
-        response.statusCode = 200;
         for (const field in data) {
           if (data[field]) {
             const names = data[field];
