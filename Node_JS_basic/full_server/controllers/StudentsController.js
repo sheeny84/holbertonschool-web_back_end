@@ -19,16 +19,15 @@ export default class StudentsController {
 
   static async getAllStudentsByMajor(req, res) {
     const databaseFile = process.argv[2];
-    const { major } = req.params.major;
 
-    if (!['CS', 'SWE'].includes(major)) {
+    if (!['CS', 'SWE'].includes(req.params.major)) {
       res.status(500).send('Major parameter must be CS or SWE');
       return;
     }
 
     try {
       const data = await readDatabase(databaseFile);
-      res.status(200).send(`List: ${data[major].join(', ')}`);
+      res.status(200).send(`List: ${data[req.params.major].join(', ')}`);
     } catch (err) {
       res.status(500).send('Cannot load the database');
     }
