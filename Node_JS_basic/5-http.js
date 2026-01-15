@@ -1,15 +1,12 @@
 const { createServer } = require('node:http');
-const url = require('url');
 const fs = require('node:fs');
 
 const args = process.argv.slice(2);
 
 const app = createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true); // Set true to parse query parameters
-  const { pathname } = parsedUrl.pathname;
+  const pathname = req.url;
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-
   if (pathname === '/') {
     res.end('Hello Holberton School!');
   } else if (pathname === '/students') {
