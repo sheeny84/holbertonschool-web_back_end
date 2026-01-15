@@ -1,4 +1,4 @@
-import readDatabase from '../utils';
+const readDatabase = require('../utils');
 
 class StudentsController {
   static getAllStudents(request, response) {
@@ -22,11 +22,9 @@ class StudentsController {
 
   static getAllStudentsByMajor(request, response) {
     const database = request.app.get('database');
-    response.setHeader('Content-Type', 'text/plain');
-    const path = request.url.split('/');
-    const major = path[2];
+    const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
-      response.status(500).send('Major parameter must be CS or SWE');
+      response.status(400).send('Major parameter must be CS or SWE');
     } else {
       readDatabase(database)
         .then((data) => {
